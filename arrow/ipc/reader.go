@@ -212,11 +212,11 @@ func (r *Reader) getInitialDicts() bool {
 }
 
 func (r *Reader) next() bool {
-	defer func() {
-		if pErr := recover(); pErr != nil {
-			r.err = utils.FormatRecoveredError("arrow/ipc: unknown error while reading", pErr)
-		}
-	}()
+	//defer func() {
+	//	if pErr := recover(); pErr != nil {
+	//		r.err = utils.FormatRecoveredError("arrow/ipc: unknown error while reading", pErr)
+	//	}
+	//}()
 	if r.schema == nil {
 		if err := r.readSchema(r.expectedSchema); err != nil {
 			r.err = fmt.Errorf("arrow/ipc: could not read schema from stream: %w", err)
